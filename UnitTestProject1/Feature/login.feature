@@ -12,3 +12,6 @@ Scenario Outline: Validate login functionality
 	| user_name | password |
 	|      'drajesh174@gmail.com'     |     'Rajesh@123'     |
 
+	@demo
+	Scenario: Demo functionality
+	Given User validate multiple tag

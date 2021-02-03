@@ -2,6 +2,7 @@
 using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -66,6 +67,20 @@ namespace UnitTestProject1.StepBindings
         {
             driver.Quit();
         }
+
+
+        [Given(@"User validate multiple tag")]
+        public void GivenUserValidateMultipleTag()
+        {
+            // ScenarioContext.Current.Pending();
+
+            var data = new Dictionary<string, string>();
+            foreach (var row in File.ReadAllLines("E:\\VisualStudioProject\\UnitTestProject1\\UnitTestProject1\\myfile.ini"))
+                data.Add(row.Split('=')[0], string.Join("=", row.Split('=').Skip(1).ToArray()));
+
+            Console.WriteLine(data["ServerName"]);
+        }
+
 
     }
 }
